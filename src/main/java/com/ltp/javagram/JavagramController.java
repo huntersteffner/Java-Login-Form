@@ -2,9 +2,11 @@ package com.ltp.javagram;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import jakarta.validation.Valid;
 
 @Controller
 public class JavagramController {
@@ -16,7 +18,8 @@ public class JavagramController {
     }
 
     @PostMapping("/submitItem")
-    public String handleSubmit(User user, RedirectAttributes redirectAttributes) {
+    public String handleSubmit(@Valid User user, BindingResult result) {
+        if(result.hasErrors()) return "sign-up";
         return "redirect:/result";
     }
 
