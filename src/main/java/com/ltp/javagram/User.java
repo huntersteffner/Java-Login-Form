@@ -21,6 +21,7 @@ public class User {
     private String userName;
     @Email(message = "Email invalid")
     private String email;
+    @Age(message = "Must be at least 18")
     @Past(message = "Must be in the past")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dateOfBirth;
@@ -36,7 +37,7 @@ public class User {
 
 
     public User() {
-        
+
     }
 
 
