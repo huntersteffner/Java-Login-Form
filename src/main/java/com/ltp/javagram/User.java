@@ -18,6 +18,7 @@ public class User {
     private String lastName;
     @NotBlank(message = "Username cannot be blank")
     @Size(min = 7, message = "Username must be at least seven characters")
+    @Username(message = "Username cannot contain $ % # @ ^ *")
     private String userName;
     @Email(message = "Email invalid")
     private String email;
